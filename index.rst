@@ -10,7 +10,6 @@ Welcome to Squirtgun's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   /test
    /commands
 
 
