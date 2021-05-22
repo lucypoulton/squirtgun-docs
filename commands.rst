@@ -6,14 +6,23 @@ Squirtgun includes a flexible command framework, taking design cues from Mojang'
 
 This page is still a work-in-progress, and is intended to be used alongside the ``squirtgun-commands`` Javadoc, available at https://javadoc.lucyy.me.
 
-#########
-Key Terms
-#########
+######################
+Structure of a command
+######################
 
-+++++++
-Command
-+++++++
-There is no such thing as a command.
+In Squirtgun, a command is split into several nodes, which expose zero or more arguments. Take this example from ProNouns::
+
+        /pronouns set she they
+
+This command is made up of two nodes, and two arguments:
+
+* ``/prononuns`` - this isn't actually part of the command, instead being provided by the executor, in this case Bukkit.
+* ``set`` - a single string argument as part of a SubcommandNode
+* ``she they`` - the previous SubcommandNode specified the set node as the next node in the chain, which exposes a single custom argument accepting a set of pronouns. Note how one string is not necessarily one argument.
+
+#########
+Key terms
+#########
 
 +++++++++++++
 Command Chain
